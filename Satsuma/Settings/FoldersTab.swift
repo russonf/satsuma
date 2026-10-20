@@ -2,26 +2,48 @@ import SwiftUI
 import AppKit
 
 struct FoldersTab: View {
-    @AppStorage("folders.bookmarks") private var bookmarkData: Data = Data()
-    @State private var folders: [URL] = []
+    @ObservedObject private var store = FolderBookmarks.shared
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Folder Access").font(.headline)
-            Text("Satsuma saves results beside the originals. macOS asks you to allow each output folder once. Allowing a parent folder, such as your home folder, also covers every folder inside it.")
+            Text("Add folders you want Satsuma to always have access to — Satsuma stores a macOS security-scoped bookmark so it still works after a reboot. Adding a parent folder covers everything inside.")
                 .font(.caption).foregroundStyle(.secondary)
 
             GroupBox {
-                if folders.isEmpty {
-                    Text("No folders allowed yet.")
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                if store.folders.isEmpty {
+                    VStack(spacing: 6) {
+                        Image(systemName: "folder.badge.plus").font(.title)
+                            .foregroundStyle(.secondary)
+                        Text("No folders added yet.")
+                            .foregroundStyle(.secondary).font(.caption)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
                 } else {
-                    List(folders, id: \.self) { Text($0.path) }
+                    List {
+                        ForEach(store.folders) { entry in
+                            HStack {
+                                Image(systemName: "folder.fill")
+                                    .foregroundStyle(Color(red: 0.95, green: 0.52, blue: 0.17))
+                                VStack(alignment: .leading, spacing: 1) {
+                                    Text(entry.url.lastPathComponent).fontWeight(.medium)
+                                    Text(entry.url.path).font(.caption)
+                                        .foregroundStyle(.secondary).lineLimit(1).truncationMode(.middle)
+                                }
+                                Spacer()
+                                Button(role: .destructive) { store.remove(entry) }
+                                label: { Image(systemName: "trash") }
+                                    .buttonStyle(.borderless)
+                            }
+                            .padding(.vertical, 2)
+                        }
+                    }
+                    .frame(minHeight: 140)
                 }
                 HStack {
                     Spacer()
                     Button("Add Folder…") { pickFolder() }
+                        .buttonStyle(.borderedProminent)
                 }
             }
             Spacer()
@@ -33,8 +55,9 @@ struct FoldersTab: View {
         panel.canChooseDirectories = true
         panel.canChooseFiles = false
         panel.allowsMultipleSelection = false
+        panel.message = "Grant Satsuma access to this folder"
         if panel.runModal() == .OK, let url = panel.url {
-            folders.append(url)
+            FolderBookmarks.shared.add(url: url)
         }
     }
 }

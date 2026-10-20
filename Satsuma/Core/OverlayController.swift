@@ -2,30 +2,10 @@ import AppKit
 import SwiftUI
 
 final class OverlayController {
-    private var window: NSWindow?
     private var modifierMonitor: ModifierMonitor?
     private var dragSession: DragSession?
 
     func start() {
-        let screenFrame = NSScreen.main?.frame ?? NSRect(x: 0, y: 0, width: 1920, height: 1080)
-        let w = NSWindow(contentRect: screenFrame,
-                         styleMask: [.borderless],
-                         backing: .buffered,
-                         defer: false)
-        w.isOpaque = false
-        w.backgroundColor = .clear
-        w.level = .screenSaver
-        w.ignoresMouseEvents = true
-        w.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary, .stationary]
-        w.hasShadow = false
-
-        let host = NSHostingView(rootView: OverlayRoot(state: OverlayState.shared))
-        host.frame = w.contentView?.bounds ?? .zero
-        host.autoresizingMask = [.width, .height]
-        w.contentView?.addSubview(host)
-        w.orderFrontRegardless()
-        self.window = w
-
         modifierMonitor = ModifierMonitor { [weak self] mods in
             self?.handleModifiers(mods)
         }
@@ -33,20 +13,36 @@ final class OverlayController {
 
         dragSession = DragSession { active in
             OverlayState.shared.dragActive = active
-            if !active { OverlayState.shared.wheel = nil }
+            if !active { WheelWindow.shared.hide() }
         }
         dragSession?.start()
     }
 
     private func handleModifiers(_ mods: NSEvent.ModifierFlags) {
-        guard OverlayState.shared.dragActive else { return }
+        guard OverlayState.shared.dragActive, !OverlayState.shared.paused else { return }
         let conv = modifierKey("mod.conversion", default: .shift)
         let tool = modifierKey("mod.tools",      default: .command)
         let act  = modifierKey("mod.actions",    default: .control)
-        if mods.contains(conv)      { OverlayState.shared.wheel = .conversion }
-        else if mods.contains(tool) { OverlayState.shared.wheel = .tools }
-        else if mods.contains(act)  { OverlayState.shared.wheel = .actions }
-        else { OverlayState.shared.wheel = nil }
+        let more = modifierKey("mod.more",       default: .option)
+
+        let newWheel: WheelKind?
+        // Combo first — Shift+Option opens Recipes.
+        if mods.contains(.shift) && mods.contains(.option) { newWheel = .recipes }
+        else if mods.contains(conv) { newWheel = .conversion }
+        else if mods.contains(tool) { newWheel = .tools }
+        else if mods.contains(act)  { newWheel = .actions }
+        else if mods.contains(more) { newWheel = .more }
+        else                        { newWheel = nil }
+
+        if let kind = newWheel {
+            if OverlayState.shared.wheel == nil {
+                WheelWindow.shared.show(kind: kind, at: NSEvent.mouseLocation)
+            } else {
+                OverlayState.shared.wheel = kind
+            }
+        } else {
+            WheelWindow.shared.hide()
+        }
     }
 
     private func modifierKey(_ key: String, default def: NSEvent.ModifierFlags) -> NSEvent.ModifierFlags {
@@ -64,36 +60,15 @@ final class OverlayState: ObservableObject {
     static let shared = OverlayState()
     @Published var dragActive: Bool = false
     @Published var wheel: WheelKind? = nil
-    @Published var cursor: CGPoint = .zero
     @Published var fileSizeLabel: String = ""
     @Published var currentFileURL: URL? = nil
+    @Published var currentURLs: [URL] = []
+    @Published var thumbnail: NSImage? = nil
+    @Published var paused: Bool = false
+    @Published var progress: Double? = nil   // nil = no active job
+    @Published var lastResult: URL? = nil
+
+    var kind: FileKind { FileTypeDetector.kindOfSet(currentURLs) }
 }
 
-enum WheelKind { case conversion, tools, actions }
-
-struct OverlayRoot: View {
-    @ObservedObject var state: OverlayState
-
-    var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                if let wheel = state.wheel {
-                    WheelHost(kind: wheel)
-                        .position(screenToView(state.cursor, in: geo))
-                        .transition(.scale.combined(with: .opacity))
-                }
-            }
-            .animation(.spring(response: 0.25, dampingFraction: 0.75), value: state.wheel)
-        }
-        .ignoresSafeArea()
-    }
-
-    /// Convert global (bottom-left-origin) screen coords to the hosting
-    /// view's local (top-left-origin) coords, accounting for the overlay's
-    /// window origin.
-    private func screenToView(_ p: CGPoint, in geo: GeometryProxy) -> CGPoint {
-        let frame = NSScreen.main?.frame ?? .zero
-        return CGPoint(x: p.x - frame.origin.x,
-                       y: frame.height - (p.y - frame.origin.y))
-    }
-}
+enum WheelKind { case conversion, tools, actions, more, recipes }

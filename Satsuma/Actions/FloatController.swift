@@ -45,8 +45,7 @@ struct FloatPanel: View {
                         Spacer()
                     }
                     .padding(.horizontal, 8).padding(.vertical, 4)
-                    .background(Color.secondary.opacity(0.08))
-                    .cornerRadius(6)
+                    .background(RoundedRectangle(cornerRadius: 6).fill(.quaternary))
                     .onDrag { NSItemProvider(object: u as NSURL) }
                 }
             }

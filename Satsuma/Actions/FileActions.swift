@@ -2,35 +2,35 @@ import Foundation
 import AppKit
 
 enum FileActions {
-    private static var url: URL? { OverlayState.shared.currentFileURL }
+    private static var urls: [URL] { OverlayState.shared.currentURLs }
 
-    static func compress() {
-        guard let u = url else { return }
-        DispatchQueue.global().async {
-            let dest = u.deletingPathExtension().appendingPathExtension("zip")
-            let proc = Process()
-            proc.executableURL = URL(fileURLWithPath: "/usr/bin/ditto")
-            proc.arguments = ["-c", "-k", "--sequesterRsrc", "--keepParent", u.path, dest.path]
-            try? proc.run()
-            proc.waitUntilExit()
-            NSLog("Satsuma: compressed -> \(dest.path)")
-        }
-    }
+    static func compress() { ArchiveConverter.create(urls: urls, format: .zip) }
+    static func zip()      { ArchiveConverter.create(urls: urls, format: .zip) }
+    static func tar()      { ArchiveConverter.create(urls: urls, format: .tar) }
+    static func tgz()      { ArchiveConverter.create(urls: urls, format: .tgz) }
 
     static func metadata() {
-        guard let u = url else { return }
+        guard let u = urls.first else { return }
         DispatchQueue.main.async { MetadataWindow.show(for: u) }
     }
 
-    static func edit()     { openInPreview() }
-    static func annotate() { openInPreview() }
-    static func addBackground() { openInPreview() }
-    static func crop()     { openInPreview() }
-    static func redact()   { openInPreview() }
+    static func edit() {
+        guard let u = urls.first else { return }
+        DispatchQueue.main.async {
+            let preview = URL(fileURLWithPath: "/System/Applications/Preview.app")
+            NSWorkspace.shared.open([u], withApplicationAt: preview, configuration: NSWorkspace.OpenConfiguration())
+        }
+    }
 
-    private static func openInPreview() {
-        guard let u = url else { return }
-        let preview = URL(fileURLWithPath: "/System/Applications/Preview.app")
-        NSWorkspace.shared.open([u], withApplicationAt: preview, configuration: NSWorkspace.OpenConfiguration())
+    static func crop()     { if let u = urls.first { DispatchQueue.main.async { CropWindow.show(for: u) } } }
+    static func redact()   { if let u = urls.first { DispatchQueue.main.async { RedactWindow.show(for: u) } } }
+    static func annotate() { if let u = urls.first { DispatchQueue.main.async { AnnotateWindow.show(for: u) } } }
+
+    static func addBackground() {
+        if let u = urls.first { DispatchQueue.main.async { AddBackgroundWindow.show(for: u) } }
+    }
+
+    static func resize() {
+        if let u = urls.first { DispatchQueue.main.async { ResizeWindow.show(for: u) } }
     }
 }

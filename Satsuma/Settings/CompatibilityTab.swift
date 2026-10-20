@@ -3,40 +3,55 @@ import SwiftUI
 struct CompatibilityTab: View {
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Format Compatibility").font(.headline)
-                MatrixView(title: "Images",
-                           rows: ["JPG","PNG","WEBP","HEIC","TIFF","SVG","AVIF","BMP"],
-                           cols: ["JPG","PNG","WEBP","HEIC","TIFF","AVIF","BMP","PDF"])
-                MatrixView(title: "Documents",
-                           rows: ["PDF","DOCX","PAGES","PPT","PPTX","TXT","MD","RTF","RTFD"],
-                           cols: ["PDF","DOCX","PAGES","PPTX","TXT","MD","HTML","EPUB","JPG","PNG","XLSX"])
-            }.padding()
+            VStack(alignment: .leading, spacing: 20) {
+                Text("What Satsuma can convert")
+                    .font(.headline)
+                Text("Live from the code — row is the input, column is the output. Satsuma can do everything with a ✓, nothing with a —.")
+                    .font(.caption).foregroundStyle(.secondary)
+                ForEach(CompatibilityCatalog.sections.indices, id: \.self) { i in
+                    MatrixCard(section: CompatibilityCatalog.sections[i])
+                }
+            }
+            .padding(16)
         }
     }
 }
 
-private struct MatrixView: View {
-    let title: String
-    let rows: [String]
-    let cols: [String]
+private struct MatrixCard: View {
+    let section: CompatibilityCatalog.Section
+    private let colWidth: CGFloat = 44
+    private let rowLabelWidth: CGFloat = 100
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title).font(.subheadline).bold()
-            Grid(horizontalSpacing: 6, verticalSpacing: 4) {
+        GroupBox(section.title) {
+            Grid(horizontalSpacing: 2, verticalSpacing: 4) {
                 GridRow {
-                    Text("").frame(width: 56)
-                    ForEach(cols, id: \.self) { Text($0).font(.caption).frame(width: 36) }
+                    Text("").frame(width: rowLabelWidth)
+                    ForEach(section.cols, id: \.self) { c in
+                        Text(c).font(.caption).bold().frame(width: colWidth)
+                    }
                 }
-                ForEach(rows, id: \.self) { r in
+                Divider()
+                ForEach(section.rows, id: \.self) { r in
                     GridRow {
-                        Text(r).font(.caption).frame(width: 56, alignment: .leading)
-                        ForEach(cols, id: \.self) { c in
-                            Text(r == c ? "—" : "✓").frame(width: 36).foregroundStyle(.secondary)
+                        Text(r).font(.caption).bold()
+                            .frame(width: rowLabelWidth, alignment: .leading)
+                        ForEach(section.cols, id: \.self) { c in
+                            cell(r, c)
                         }
                     }
                 }
             }
+            .padding(.vertical, 4)
         }
+    }
+
+    @ViewBuilder
+    private func cell(_ r: String, _ c: String) -> some View {
+        let supported = section.supports(r, c)
+        Text(supported ? "✓" : "—")
+            .font(.caption)
+            .foregroundStyle(supported ? Color(red: 0.95, green: 0.52, blue: 0.17) : .secondary.opacity(0.5))
+            .frame(width: colWidth, height: 20)
     }
 }

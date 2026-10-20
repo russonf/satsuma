@@ -9,12 +9,11 @@ final class ModifierMonitor {
     }
 
     func start() {
-        monitor = NSEvent.addGlobalMonitorForEvents(matching: [.flagsChanged, .mouseMoved]) { [weak self] event in
+        monitor = NSEvent.addGlobalMonitorForEvents(matching: [.flagsChanged, .keyDown]) { [weak self] event in
             if event.type == .flagsChanged {
                 self?.onChange(event.modifierFlags)
-            }
-            if event.type == .mouseMoved {
-                OverlayState.shared.cursor = NSEvent.mouseLocation
+            } else if event.type == .keyDown, event.keyCode == 53 /* Escape */ {
+                DispatchQueue.main.async { WheelWindow.shared.hide() }
             }
         }
     }

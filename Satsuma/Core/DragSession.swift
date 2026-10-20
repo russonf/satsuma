@@ -1,18 +1,13 @@
 import AppKit
 
 /// Heuristic "drag in progress" detector.
-/// macOS has no public global drag-session API. We poll the drag pasteboard
-/// and the left mouse-button state; when both say "file + button down" we
-/// consider a drag active. Good enough for the overlay HUD.
 final class DragSession {
     private let onChange: (Bool) -> Void
     private var tick: Timer?
     private var active = false
-    private var lastChangeCount: Int
 
     init(_ onChange: @escaping (Bool) -> Void) {
         self.onChange = onChange
-        self.lastChangeCount = NSPasteboard(name: .drag).changeCount
     }
 
     func start() {
@@ -30,18 +25,28 @@ final class DragSession {
         if now != active {
             active = now
             if active {
-                if let urls = pb.readObjects(forClasses: [NSURL.self], options: nil) as? [URL], let first = urls.first {
-                    OverlayState.shared.currentFileURL = first
-                    OverlayState.shared.fileSizeLabel = Self.sizeString(for: first)
+                if let urls = pb.readObjects(forClasses: [NSURL.self], options: nil) as? [URL], !urls.isEmpty {
+                    OverlayState.shared.currentURLs = urls
+                    OverlayState.shared.currentFileURL = urls.first
+                    OverlayState.shared.fileSizeLabel = Self.sizeString(for: urls)
+                    OverlayState.shared.thumbnail = nil
+                    if let first = urls.first {
+                        ThumbnailProvider.request(for: first, size: CGSize(width: 96, height: 96)) { img in
+                            OverlayState.shared.thumbnail = img
+                        }
+                    }
                 }
             }
             DispatchQueue.main.async { self.onChange(now) }
         }
     }
 
-    private static func sizeString(for url: URL) -> String {
-        let v = try? url.resourceValues(forKeys: [.fileSizeKey])
-        let bytes = Int64(v?.fileSize ?? 0)
-        return ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+    private static func sizeString(for urls: [URL]) -> String {
+        let bytes = urls.reduce(Int64(0)) { acc, u in
+            let v = try? u.resourceValues(forKeys: [.fileSizeKey])
+            return acc + Int64(v?.fileSize ?? 0)
+        }
+        let total = ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+        return urls.count > 1 ? "\(urls.count) · \(total)" : total
     }
 }

@@ -27,6 +27,8 @@ targets:
       properties:
         CFBundleName: Satsuma
         CFBundleDisplayName: Satsuma
+        CFBundleIconName: AppIcon
+        CFBundleIconFile: AppIcon
         CFBundleShortVersionString: $(MARKETING_VERSION)
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)

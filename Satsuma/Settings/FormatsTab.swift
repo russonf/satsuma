@@ -1,20 +1,18 @@
 import SwiftUI
 
 struct FormatsTab: View {
-    @State private var selected: String = "JPG"
-    private let images = ["JPG","PNG","WEBP","HEIC","TIFF","SVG","AVIF","BMP"]
-    private let docs   = ["PDF","DOCX","PAGES","PPT","PPTX","TXT","MD"]
+    @State private var selected: String = "jpg"
+    private let images = ["jpg","png","webp","heic","tiff","avif","bmp"]
+    private let docs   = ["pdf"]
 
     var body: some View {
         HStack(spacing: 0) {
             List(selection: $selected) {
-                Section("Images") { ForEach(images, id: \.self) { Text($0).tag($0) } }
-                Section("Documents") { ForEach(docs, id: \.self) { Text($0).tag($0) } }
+                Section("Images") { ForEach(images, id: \.self) { Text($0.uppercased()).tag($0) } }
+                Section("Documents") { ForEach(docs, id: \.self) { Text($0.uppercased()).tag($0) } }
             }
             .frame(width: 150)
-
             Divider()
-
             FormatDetail(format: selected).padding()
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
@@ -23,18 +21,35 @@ struct FormatsTab: View {
 
 struct FormatDetail: View {
     let format: String
+    @AppStorage private var quality: String
+    @AppStorage private var preserveMeta: Bool
+
+    init(format: String) {
+        self.format = format
+        self._quality = AppStorage(wrappedValue: "balanced", "quality.\(format)")
+        self._preserveMeta = AppStorage(wrappedValue: true, "preserveMetadata.\(format)")
+    }
+
+    private static let lossyFormats: Set<String> = ["jpg", "webp", "heic", "avif"]
+    private var isLossy: Bool { Self.lossyFormats.contains(format) }
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Text("\(format) Settings").font(.title3).bold()
-            Text("Input and output format. Converts to related image and document types.")
+        VStack(alignment: .leading, spacing: 14) {
+            Text("\(format.uppercased()) Settings").font(.title3).bold()
+            Text("Output options for this format. Changes save instantly and apply to future conversions.")
                 .font(.caption).foregroundStyle(.secondary)
+
             GroupBox("Conversion Settings") {
-                Toggle("Preserve metadata", isOn: .constant(true))
-            }
-            GroupBox("Image Compression") {
-                Picker("Compression", selection: .constant("balanced")) {
-                    Text("Balanced").tag("balanced"); Text("Strong").tag("strong")
-                }.pickerStyle(.segmented)
+                Picker("Quality", selection: $quality) {
+                    Text("High").tag("high")
+                    Text("Balanced").tag("balanced")
+                    Text("Strong (small)").tag("strong")
+                }.pickerStyle(.segmented).disabled(!isLossy)
+                if !isLossy {
+                    Text("Quality has no effect on \(format.uppercased()) — this is a lossless format.")
+                        .font(.caption).foregroundStyle(.secondary)
+                }
+                Toggle("Preserve metadata (EXIF, GPS)", isOn: $preserveMeta)
             }
             Spacer()
         }
