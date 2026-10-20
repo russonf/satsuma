@@ -8,11 +8,7 @@ Runs in the background with no Dock icon. Status item: an orange hexagon grid in
 
 **Inspired by** [Tangerine for Mac](https://tangerineformac.com) — a paid, closed-source app on the Mac App Store that invented this gesture. Satsuma is an independent, open-source reimplementation. If you want polish, docs, and paid support, buy Tangerine. If you want free, hackable, and auditable, Satsuma is for you.
 
-<p align="center">
-  <img src="screenshots/wheel-conversion.png" width="280" alt="Conversion wheel">
-  <img src="screenshots/wheel-tools.png"      width="280" alt="Tools wheel">
-  <img src="screenshots/wheel-actions.png"    width="280" alt="Actions wheel">
-</p>
+*(Screenshots coming in v0.1.1 — captured from the real Satsuma UI, not from Tangerine.)*
 
 ---
 
