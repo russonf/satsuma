@@ -8,7 +8,11 @@ Runs in the background with no Dock icon. Status item: an orange hexagon grid in
 
 **Inspired by** [Tangerine for Mac](https://tangerineformac.com) — a paid, closed-source app on the Mac App Store that invented this gesture. Satsuma is an independent, open-source reimplementation. If you want polish, docs, and paid support, buy Tangerine. If you want free, hackable, and auditable, Satsuma is for you.
 
-*(Screenshots coming in v0.1.1 — captured from the real Satsuma UI, not from Tangerine.)*
+<p align="center">
+  <img src="screenshots/hero-wheel.png" width="420" alt="Satsuma conversion wheel in action — dragging cat.png with the preview in the centre and format segments arranged around it">
+</p>
+
+<p align="center"><em>Dragging <code>cat.png</code> with Shift held — the Conversion wheel appears at the cursor, with the file thumbnail in the centre.</em></p>
 
 ---
 
