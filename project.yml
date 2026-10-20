@@ -1,0 +1,60 @@
+name: Satsuma
+options:
+  bundleIdPrefix: com.satsuma
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_HARDENED_RUNTIME: YES
+
+targets:
+  Satsuma:
+    type: application
+    platform: macOS
+    sources:
+      - path: Satsuma
+    resources:
+      - path: Satsuma/Assets.xcassets
+    info:
+      path: Satsuma/Info.plist
+      properties:
+        CFBundleName: Satsuma
+        CFBundleDisplayName: Satsuma
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        LSUIElement: true
+        NSHighResolutionCapable: true
+        NSSupportsAutomaticTermination: false
+        NSAppleEventsUsageDescription: Satsuma uses Apple Events to coordinate file actions.
+        NSDesktopFolderUsageDescription: Satsuma needs access to files you drag from the Desktop.
+        NSDocumentsFolderUsageDescription: Satsuma needs access to files you drag from Documents.
+        NSDownloadsFolderUsageDescription: Satsuma needs access to files you drag from Downloads.
+        NSRemovableVolumesUsageDescription: Satsuma needs access to files on removable volumes.
+    entitlements:
+      path: Satsuma/Satsuma.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        com.apple.security.files.user-selected.read-write: true
+        com.apple.security.automation.apple-events: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.satsuma.Satsuma
+        GENERATE_INFOPLIST_FILE: NO
+        INFOPLIST_FILE: Satsuma/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Satsuma/Satsuma.entitlements
+
+  SatsumaTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - path: SatsumaTests
+    dependencies:
+      - target: Satsuma

@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0119710E49D7D72B3FDA5867 /* DragSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0BD2E5F1542549A9A13351 /* DragSession.swift */; };
+		03253F8816889B8CA3881BD3 /* DocumentConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F70BFB5F2C1F39873A717A7 /* DocumentConverter.swift */; };
+		117C81F78CBF1B641F7DD9BF /* ToolsWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9760E53632ACE136863EA251 /* ToolsWheel.swift */; };
+		11F86E5F8A8142C8EAA868BC /* SettingsRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510F8C8853E97C5982F917D5 /* SettingsRoot.swift */; };
+		15BB40E3E9D016CC99E432A2 /* SatsumaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F7B7FAE935E211278FBB8B /* SatsumaTests.swift */; };
+		214D51281ADDFB2A48BF2081 /* OverlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC70DE5675D9F29420E3AE5C /* OverlayController.swift */; };
+		33CC7C3A5932F8B9C283C421 /* ModifierMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B47CA00E96F3C80E6B3A8 /* ModifierMonitor.swift */; };
+		3F12051FF845ACCD344A8405 /* ToolActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EF3D1F08A5EA220F6EA69F /* ToolActions.swift */; };
+		573A7F7E63E9D2F84897D2B8 /* MetadataWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EF3DDD11878F46E34E4C92 /* MetadataWindow.swift */; };
+		66C48ABCE58BE2F940C52F0F /* FileActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0FAB080C75389BE781325 /* FileActions.swift */; };
+		7BC1B3FA7B383D2FA35184F1 /* FormatsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCE4FDC40CC2C8C1622411F /* FormatsTab.swift */; };
+		86C39AAE8FA852DB0E37C702 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6781B63540768866DD2D0D4 /* ImageConverter.swift */; };
+		962E5F3253B95B5F641973CC /* PermissionsCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59F83759EA1A67ADBAEF3DE /* PermissionsCheck.swift */; };
+		A46B019B7CEEA877A1052974 /* CompatibilityTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = B744EEF4499FEB024CD5259B /* CompatibilityTab.swift */; };
+		A9D34296EB45D1D07DA7E0DD /* AboutTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89BB1D44A1C7CBB86E07C05 /* AboutTab.swift */; };
+		C7C815CF0E944F68550C082A /* ConversionWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3BD00AD2CBACB02B8C893C /* ConversionWheel.swift */; };
+		CA3A664FEA3372B7C85C4B32 /* FoldersTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F0020A66DA39B3BBEB53B3 /* FoldersTab.swift */; };
+		DA9CB865B11496A27E287D36 /* ActionsWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116B9D69B9DD1C9368071815 /* ActionsWheel.swift */; };
+		DFCE2960C176E85A5EC57B2C /* GeneralTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7B472B69D9AAE49E5D2E0 /* GeneralTab.swift */; };
+		E1638ED79E08FB30D6BD5827 /* RadialMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC133DCF5B0EB447227B5FE /* RadialMenu.swift */; };
+		EA4AEDBD4CFEB7996E98AB7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47A548C6E05C44771E8799F5 /* Assets.xcassets */; };
+		F4D1F4B2D63D7F383C8121D2 /* SatsumaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18367F09ADC9D5215A2EEC0 /* SatsumaApp.swift */; };
+		F84DB5F010DD551BC9980394 /* FloatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD63246C926CA44D108FB29 /* FloatController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC4A0C2DB9288465E27CFBD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C675D17C990DCDF38F76CC59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D49730659D5B72175D6278E1;
+			remoteInfo = Satsuma;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		116B9D69B9DD1C9368071815 /* ActionsWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsWheel.swift; sourceTree = "<group>"; };
+		1E3BD00AD2CBACB02B8C893C /* ConversionWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionWheel.swift; sourceTree = "<group>"; };
+		20D7B472B69D9AAE49E5D2E0 /* GeneralTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralTab.swift; sourceTree = "<group>"; };
+		26EF3DDD11878F46E34E4C92 /* MetadataWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataWindow.swift; sourceTree = "<group>"; };
+		2F70BFB5F2C1F39873A717A7 /* DocumentConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentConverter.swift; sourceTree = "<group>"; };
+		47A548C6E05C44771E8799F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4D6B47CA00E96F3C80E6B3A8 /* ModifierMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifierMonitor.swift; sourceTree = "<group>"; };
+		510F8C8853E97C5982F917D5 /* SettingsRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRoot.swift; sourceTree = "<group>"; };
+		5E69D97622D70347CDA4F55C /* Satsuma.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Satsuma.entitlements; sourceTree = "<group>"; };
+		62EB7F5ECCFE1495BB6283D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62F0020A66DA39B3BBEB53B3 /* FoldersTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTab.swift; sourceTree = "<group>"; };
+		6BD63246C926CA44D108FB29 /* FloatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatController.swift; sourceTree = "<group>"; };
+		77EF3D1F08A5EA220F6EA69F /* ToolActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolActions.swift; sourceTree = "<group>"; };
+		80E0FAB080C75389BE781325 /* FileActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileActions.swift; sourceTree = "<group>"; };
+		8CC166004AC3FF49BBB9D532 /* SatsumaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SatsumaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9760E53632ACE136863EA251 /* ToolsWheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsWheel.swift; sourceTree = "<group>"; };
+		9AC133DCF5B0EB447227B5FE /* RadialMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialMenu.swift; sourceTree = "<group>"; };
+		A18367F09ADC9D5215A2EEC0 /* SatsumaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatsumaApp.swift; sourceTree = "<group>"; };
+		A50C2A8DE98F7CB64B5C7CB4 /* Satsuma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Satsuma.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6781B63540768866DD2D0D4 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
+		A6F7B7FAE935E211278FBB8B /* SatsumaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SatsumaTests.swift; sourceTree = "<group>"; };
+		B744EEF4499FEB024CD5259B /* CompatibilityTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompatibilityTab.swift; sourceTree = "<group>"; };
+		BDCE4FDC40CC2C8C1622411F /* FormatsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatsTab.swift; sourceTree = "<group>"; };
+		CC70DE5675D9F29420E3AE5C /* OverlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayController.swift; sourceTree = "<group>"; };
+		E59F83759EA1A67ADBAEF3DE /* PermissionsCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCheck.swift; sourceTree = "<group>"; };
+		E89BB1D44A1C7CBB86E07C05 /* AboutTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutTab.swift; sourceTree = "<group>"; };
+		EA0BD2E5F1542549A9A13351 /* DragSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DragSession.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		08EE70060AB31360E0DAB204 /* Wheels */ = {
+			isa = PBXGroup;
+			children = (
+				116B9D69B9DD1C9368071815 /* ActionsWheel.swift */,
+				1E3BD00AD2CBACB02B8C893C /* ConversionWheel.swift */,
+				9AC133DCF5B0EB447227B5FE /* RadialMenu.swift */,
+				9760E53632ACE136863EA251 /* ToolsWheel.swift */,
+			);
+			path = Wheels;
+			sourceTree = "<group>";
+		};
+		316B891BC82CEC52FC251A5D /* SatsumaTests */ = {
+			isa = PBXGroup;
+			children = (
+				A6F7B7FAE935E211278FBB8B /* SatsumaTests.swift */,
+			);
+			path = SatsumaTests;
+			sourceTree = "<group>";
+		};
+		378B9F99914B371659B4797E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				EA0BD2E5F1542549A9A13351 /* DragSession.swift */,
+				4D6B47CA00E96F3C80E6B3A8 /* ModifierMonitor.swift */,
+				CC70DE5675D9F29420E3AE5C /* OverlayController.swift */,
+				E59F83759EA1A67ADBAEF3DE /* PermissionsCheck.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		4483125E0221E212F31F6420 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A50C2A8DE98F7CB64B5C7CB4 /* Satsuma.app */,
+				8CC166004AC3FF49BBB9D532 /* SatsumaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83DADC060D1C3D878F0DE116 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E89BB1D44A1C7CBB86E07C05 /* AboutTab.swift */,
+				B744EEF4499FEB024CD5259B /* CompatibilityTab.swift */,
+				62F0020A66DA39B3BBEB53B3 /* FoldersTab.swift */,
+				BDCE4FDC40CC2C8C1622411F /* FormatsTab.swift */,
+				20D7B472B69D9AAE49E5D2E0 /* GeneralTab.swift */,
+				510F8C8853E97C5982F917D5 /* SettingsRoot.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		947BCE484D138CBB5B0C50EB /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				80E0FAB080C75389BE781325 /* FileActions.swift */,
+				6BD63246C926CA44D108FB29 /* FloatController.swift */,
+				26EF3DDD11878F46E34E4C92 /* MetadataWindow.swift */,
+				77EF3D1F08A5EA220F6EA69F /* ToolActions.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		A92F20F456951FE75C3BA825 /* Converters */ = {
+			isa = PBXGroup;
+			children = (
+				2F70BFB5F2C1F39873A717A7 /* DocumentConverter.swift */,
+				A6781B63540768866DD2D0D4 /* ImageConverter.swift */,
+			);
+			path = Converters;
+			sourceTree = "<group>";
+		};
+		B23A762CC10BFF13A12D965E /* Satsuma */ = {
+			isa = PBXGroup;
+			children = (
+				47A548C6E05C44771E8799F5 /* Assets.xcassets */,
+				62EB7F5ECCFE1495BB6283D3 /* Info.plist */,
+				5E69D97622D70347CDA4F55C /* Satsuma.entitlements */,
+				A18367F09ADC9D5215A2EEC0 /* SatsumaApp.swift */,
+				947BCE484D138CBB5B0C50EB /* Actions */,
+				A92F20F456951FE75C3BA825 /* Converters */,
+				378B9F99914B371659B4797E /* Core */,
+				83DADC060D1C3D878F0DE116 /* Settings */,
+				08EE70060AB31360E0DAB204 /* Wheels */,
+			);
+			path = Satsuma;
+			sourceTree = "<group>";
+		};
+		F1C0C83F341DFA3A69F2F3C9 = {
+			isa = PBXGroup;
+			children = (
+				B23A762CC10BFF13A12D965E /* Satsuma */,
+				316B891BC82CEC52FC251A5D /* SatsumaTests */,
+				4483125E0221E212F31F6420 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99E731101D99EF4AACC85DCD /* SatsumaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7F26F636082EF2BB29F6DF5 /* Build configuration list for PBXNativeTarget "SatsumaTests" */;
+			buildPhases = (
+				1AFA7986AE91364DB90C22FC /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D366119D4CD3F02C42094487 /* PBXTargetDependency */,
+			);
+			name = SatsumaTests;
+			packageProductDependencies = (
+			);
+			productName = SatsumaTests;
+			productReference = 8CC166004AC3FF49BBB9D532 /* SatsumaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D49730659D5B72175D6278E1 /* Satsuma */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 998A739599AFDD608FFDB2A7 /* Build configuration list for PBXNativeTarget "Satsuma" */;
+			buildPhases = (
+				945C1E1056A2F8D5260B0045 /* Sources */,
+				2E192677BE5D946EC11A416D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Satsuma;
+			packageProductDependencies = (
+			);
+			productName = Satsuma;
+			productReference = A50C2A8DE98F7CB64B5C7CB4 /* Satsuma.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C675D17C990DCDF38F76CC59 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					99E731101D99EF4AACC85DCD = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					D49730659D5B72175D6278E1 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6A9E809F7864E3CB48DC9F41 /* Build configuration list for PBXProject "Satsuma" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = F1C0C83F341DFA3A69F2F3C9;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4483125E0221E212F31F6420 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D49730659D5B72175D6278E1 /* Satsuma */,
+				99E731101D99EF4AACC85DCD /* SatsumaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2E192677BE5D946EC11A416D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EA4AEDBD4CFEB7996E98AB7A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1AFA7986AE91364DB90C22FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15BB40E3E9D016CC99E432A2 /* SatsumaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		945C1E1056A2F8D5260B0045 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9D34296EB45D1D07DA7E0DD /* AboutTab.swift in Sources */,
+				DA9CB865B11496A27E287D36 /* ActionsWheel.swift in Sources */,
+				A46B019B7CEEA877A1052974 /* CompatibilityTab.swift in Sources */,
+				C7C815CF0E944F68550C082A /* ConversionWheel.swift in Sources */,
+				03253F8816889B8CA3881BD3 /* DocumentConverter.swift in Sources */,
+				0119710E49D7D72B3FDA5867 /* DragSession.swift in Sources */,
+				66C48ABCE58BE2F940C52F0F /* FileActions.swift in Sources */,
+				F84DB5F010DD551BC9980394 /* FloatController.swift in Sources */,
+				CA3A664FEA3372B7C85C4B32 /* FoldersTab.swift in Sources */,
+				7BC1B3FA7B383D2FA35184F1 /* FormatsTab.swift in Sources */,
+				DFCE2960C176E85A5EC57B2C /* GeneralTab.swift in Sources */,
+				86C39AAE8FA852DB0E37C702 /* ImageConverter.swift in Sources */,
+				573A7F7E63E9D2F84897D2B8 /* MetadataWindow.swift in Sources */,
+				33CC7C3A5932F8B9C283C421 /* ModifierMonitor.swift in Sources */,
+				214D51281ADDFB2A48BF2081 /* OverlayController.swift in Sources */,
+				962E5F3253B95B5F641973CC /* PermissionsCheck.swift in Sources */,
+				E1638ED79E08FB30D6BD5827 /* RadialMenu.swift in Sources */,
+				F4D1F4B2D63D7F383C8121D2 /* SatsumaApp.swift in Sources */,
+				11F86E5F8A8142C8EAA868BC /* SettingsRoot.swift in Sources */,
+				3F12051FF845ACCD344A8405 /* ToolActions.swift in Sources */,
+				117C81F78CBF1B641F7DD9BF /* ToolsWheel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D366119D4CD3F02C42094487 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D49730659D5B72175D6278E1 /* Satsuma */;
+			targetProxy = CC4A0C2DB9288465E27CFBD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		90B3AD219B58577B3766EA82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		968DA0378E81678E0BA1D862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Satsuma/Satsuma.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Satsuma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.satsuma.Satsuma;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A9352195284AF799C298C231 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.satsuma.SatsumaTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Satsuma.app/Contents/MacOS/Satsuma";
+			};
+			name = Release;
+		};
+		B6384660651ADBFBC532FFBF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.satsuma.SatsumaTests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Satsuma.app/Contents/MacOS/Satsuma";
+			};
+			name = Debug;
+		};
+		F297334559B3B589996C141A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		FE96E07BFDDCD6F0C00DA86F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Satsuma/Satsuma.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Satsuma/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.satsuma.Satsuma;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6A9E809F7864E3CB48DC9F41 /* Build configuration list for PBXProject "Satsuma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90B3AD219B58577B3766EA82 /* Debug */,
+				F297334559B3B589996C141A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		998A739599AFDD608FFDB2A7 /* Build configuration list for PBXNativeTarget "Satsuma" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				968DA0378E81678E0BA1D862 /* Debug */,
+				FE96E07BFDDCD6F0C00DA86F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		A7F26F636082EF2BB29F6DF5 /* Build configuration list for PBXNativeTarget "SatsumaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6384660651ADBFBC532FFBF /* Debug */,
+				A9352195284AF799C298C231 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C675D17C990DCDF38F76CC59 /* Project object */;
+}
