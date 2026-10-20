@@ -8,6 +8,12 @@ struct AboutTab: View {
             Text("Drag a file, hold a modifier, pick a segment.")
                 .foregroundStyle(.secondary)
             Text("Version 0.1.0").font(.caption).foregroundStyle(.secondary)
+            Divider().padding(.vertical, 8)
+            VStack(spacing: 4) {
+                Text("Inspired by Tangerine for Mac").font(.caption).foregroundStyle(.secondary)
+                Link("tangerineformac.com", destination: URL(string: "https://tangerineformac.com")!)
+                    .font(.caption)
+            }
             Spacer()
         }.padding()
     }

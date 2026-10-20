@@ -4,6 +4,10 @@ A free, native macOS menu-bar app for fast file operations. Drag any file, hold 
 
 Runs in the background with no Dock icon. Status item: an orange hexagon grid in the menu bar.
 
+**Why Satsuma over the alternatives:** free, open-source, zero telemetry, zero network calls, forkable under MIT. Build-from-source auditable in under an hour.
+
+**Inspired by** [Tangerine for Mac](https://tangerineformac.com) — a paid, closed-source app on the Mac App Store that invented this gesture. Satsuma is an independent, open-source reimplementation. If you want polish, docs, and paid support, buy Tangerine. If you want free, hackable, and auditable, Satsuma is for you.
+
 <p align="center">
   <img src="screenshots/wheel-conversion.png" width="280" alt="Conversion wheel">
   <img src="screenshots/wheel-tools.png"      width="280" alt="Tools wheel">
@@ -199,6 +203,23 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Short version: fork, branch, PR against 
 
 ---
 
+## Roadmap
+
+Shipping toward feature parity with Tangerine's "275 conversion options + 26 advanced tools":
+
+- **Images** — SVG as source and destination; ICO; AVIF/JPEG XL quality dials; batch resize profiles
+- **Documents** — Pages / Keynote / Numbers export, PDF → images, DOCX ↔ PDF with layout preservation, XLSX, EPUB, Markdown parser (currently .md is passthrough from .txt)
+- **Video** — WEBM / MKV via bundled ffmpeg; trim; resolution / framerate presets; GIF export
+- **Audio** — MP3 / FLAC via bundled ffmpeg; trim; normalize; bitrate presets
+- **Archives** — 7z, RAR extraction; archive inspector; nested extract
+- **Advanced tools** — background removal (Vision), batch rename patterns, EXIF stripper, duplicate finder, folder → image montage, PDF merge / split / rotate / reorder, OCR → PDF text layer
+
+Fork the repo and claim one — [CONTRIBUTING.md](CONTRIBUTING.md) walks through the flow.
+
 ## License
 
 MIT. Fork it, ship your own, give it away.
+
+## Credits
+
+Original gesture and feature concept by [Tangerine for Mac](https://tangerineformac.com). Independent reimplementation by [@russonf](https://github.com/russonf), built in collaboration with Claude. No Tangerine assets, code, or trademarks used.
